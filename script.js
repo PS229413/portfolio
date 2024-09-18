@@ -195,5 +195,44 @@ overlay.addEventListener('click', (e) => {
         overlay.style.display = 'none';
     }
 });
-      
+   
+// script.js
+(function() {
+    // Function to get the current count from localStorage
+    function getVisitorCount() {
+        return parseInt(localStorage.getItem('visitorCount') || '0', 10);
+    }
+
+    // Function to set the visitor count to localStorage
+    function setVisitorCount(count) {
+        localStorage.setItem('visitorCount', count);
+    }
+
+    // Increment the visitor count
+    function incrementVisitorCount() {
+        let count = getVisitorCount();
+        count++;
+        setVisitorCount(count);
+        return count;
+    }
+
+    // Create a downloadable file with the visitor count
+    function downloadVisitorCount(count) {
+        const blob = new Blob([`Visitor Count: ${count}`], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'visitors.txt';
+        document.body.appendChild(a); // Append the anchor to the body
+        a.click(); // Trigger the download
+        document.body.removeChild(a); // Remove the anchor from the body
+        URL.revokeObjectURL(url); // Release the object URL
+    }
+
+    // Increment the count and download the file
+    const count = incrementVisitorCount();
+    downloadVisitorCount(count);
+})();
+
+
 });
