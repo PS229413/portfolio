@@ -295,29 +295,31 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="script.js"></script>
     <script>
-       document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function() {
     // Debugging: Log to check if the script is being executed
     console.log("Script loaded and DOM fully parsed");
 
     // Check if the user is visiting for the first time
     let isUniqueUser = localStorage.getItem('isUniqueUser');
     
-    // Only increment the counter if this is a new user
+    // Retrieve the visit count from localStorage
+    let visitCount = localStorage.getItem('visitCount');
+    
+    // If visitCount is null (no previous visits), initialize it to 0
+    if (visitCount === null) {
+        console.log("No visits found, initializing to 0");
+        visitCount = 0;
+    } else {
+        // Convert visitCount to an integer
+        visitCount = parseInt(visitCount, 10);
+        console.log("Current visit count: " + visitCount);
+    }
+
+    // If this is a new user (isUniqueUser is not set)
     if (!isUniqueUser) {
         console.log("Unique user detected, incrementing counter.");
-
-        // Retrieve the visit count from localStorage
-        let visitCount = localStorage.getItem('visitCount');
-
-        // Check if visitCount is null (this means it's the first visit)
-        if (visitCount === null) {
-            console.log("No visits found, initializing to 1");
-            visitCount = 1;
-        } else {
-            // If visitCount is found, parse it and increment
-            visitCount = parseInt(visitCount, 10) + 1;
-            console.log("Existing visits found, incrementing to: " + visitCount);
-        }
+        // Increment the visit count
+        visitCount += 1;
 
         // Store the updated visit count in localStorage
         localStorage.setItem('visitCount', visitCount);
@@ -325,17 +327,17 @@
 
         // Mark this user as unique, so the counter won't increase for them again
         localStorage.setItem('isUniqueUser', true);
-
-        // Update the visit count in the footer element
-        const visitCountElement = document.getElementById('visit-count');
-        if (visitCountElement) {
-            visitCountElement.textContent = visitCount;
-            console.log("Visit count displayed in footer: " + visitCount);
-        } else {
-            console.error("No element with ID 'visit-count' found in the HTML");
-        }
     } else {
         console.log("User has already been counted. No increment.");
+    }
+
+    // Update the visit count in the footer element
+    const visitCountElement = document.getElementById('visit-count');
+    if (visitCountElement) {
+        visitCountElement.textContent = visitCount;
+        console.log("Visit count displayed in footer: " + visitCount);
+    } else {
+        console.error("No element with ID 'visit-count' found in the HTML");
     }
 });
     </script>
