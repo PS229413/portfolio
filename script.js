@@ -1,3 +1,5 @@
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize Typed.js for animated typing effect
     const typed = new Typed('#typed-text', {
@@ -54,42 +56,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
    
 // script.js
-(function() {
-    // Function to get the current count from localStorage
-    function getVisitorCount() {
-        return parseInt(localStorage.getItem('visitorCount') || '0', 10);
-    }
+// Import the functions you need from the SDKs you need
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Function to set the visitor count to localStorage
-    function setVisitorCount(count) {
-        localStorage.setItem('visitorCount', count);
-    }
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA_XKpUwcWek9497B4k1ZZTBkAvy9QC8U0",
+  authDomain: "portfolioraulvdzande.firebaseapp.com",
+  projectId: "portfolioraulvdzande",
+  storageBucket: "portfolioraulvdzande.appspot.com",
+  messagingSenderId: "1043778728298",
+  appId: "1:1043778728298:web:d846c0ac48308ae5587513",
+  measurementId: "G-D9Q86DW344"
+};
 
-    // Increment the visitor count
-    function incrementVisitorCount() {
-        let count = getVisitorCount();
-        count++;
-        setVisitorCount(count);
-        return count;
-    }
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const database = getAnalytics(app);
 
-    // Create a downloadable file with the visitor count
-    function downloadVisitorCount(count) {
-        const blob = new Blob([`Visitor Count: ${count}`], { type: 'text/plain' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'visitors.txt';
-        document.body.appendChild(a); // Append the anchor to the body
-        a.click(); // Trigger the download
-        document.body.removeChild(a); // Remove the anchor from the body
-        URL.revokeObjectURL(url); // Release the object URL
-    }
+// Function to get the current count from Firebase
+function getVisitorCount() {
+    const countRef = ref(database, 'visitorCount');
+    return get(countRef).then(snapshot => snapshot.val() || 0);
+}
 
-    // Increment the count and download the file
-    const count = incrementVisitorCount();
-    downloadVisitorCount(count);
-})();
+// Function to set the visitor count in Firebase
+function setVisitorCount(count) {
+    const countRef = ref(database, 'visitorCount');
+    return set(countRef, count);
+}
 
-
+// Increment the visitor count
+getVisitorCount().then(count => {
+    count++;
+    setVisitorCount(count);
+    console.log(`Visitor Count: ${count}`);
+});
 });
