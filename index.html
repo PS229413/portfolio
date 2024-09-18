@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raúl van der Zande | Softwareontwikkelaar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">Raúl van der Zande</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Over mij</a></li>
+                    <li><a href="#skills">Vaardigheden</a></li>
+                    <li><a href="#projects">Projecten</a></li>
+                    <li><a href="#education">Opleiding</a></li>
+                    <li><a href="#experience">Ervaring</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Raúl van der Zande</h1>
+                    <p class="subtitle"><span id="typed-text"></span></p>
+                    <p class="location">Veghel, Nederland</p>
+                    <a href="#about" class="cta-btn">Ontdek mijn werk</a>
+                </div>
+            </div>
+            <div class="scroll-indicator"></div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="container">
+                <h2>Over mij</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Ik ben een gepassioneerde softwareontwikkelaar met expertise in Python, C#, NodeJS, en C++.
+                            Mijn doel is om innovatieve, efficiënte oplossingen te bouwen die complexe problemen
+                            omzetten in gebruiksvriendelijke software.</p>
+                        <p>Met een grote interesse in technologie en constante leergierigheid blijf ik mijn vaardigheden
+                            ontwikkelen om de nieuwste technieken toe te passen in mijn projecten.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="downloads\366118647_1002742360775768_2326040131146035178_n.jpg" alt="Raúl van der Zande">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>Vaardigheden</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <i class="fab fa-python"></i>
+                        <h3>Python</h3>
+                        <p>Django, Flask, FastAPI</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-node-js"></i>
+                        <h3>NodeJS</h3>
+                        <p>Express, Next.js</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fab fa-microsoft"></i>
+                        <h3>C#</h3>
+                        <p>WPF, .NET, ASP.NET</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-card">
+                        <i class="fas fa-code"></i>
+                        <h3>C++</h3>
+                        <p>Low-level Programming</p>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-progress="75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section with Download Links -->
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Projecten</h2>
+                <div class="projects-wrapper">
+                    <div class="projects-grid" id="projects-container">
+                        <div class="project-card">
+                            <h3>GV/SW Project</h3>
+                            <p>Hier zie je het project wat ik op school heb moeten maken. Ik heb hiervoor de volgende talen en frameworks gebruikt:</p>
+                            <h4>C#(.NET WPF)</h4>
+                            <h4>Flutter</h4>
+                            <h4>PHP(Laravel)</h4>
+                            <div class="downloads-container">
+                                <div class="downloads">
+                                    <a href="downloads/gvdesktop.zip" class="project-link" download>
+                                        <i class="icon">&#x1F4BE;</i> Download GV Desktop
+                                    </a>
+                                    <a href="downloads/GVMobile.zip" class="project-link" download>
+                                        <i class="icon">&#x1F4F1;</i> Download GV Mobile
+                                    </a>
+                                    <a href="downloads/apiProject6.zip" class="project-link" download>
+                                        <i class="icon">&#x1F4BB;</i> Download GV API
+                                    </a>
+                                    <a href="downloads/SWDesktop.zip" class="project-link" download>
+                                        <i class="icon">&#x1F4BE;</i> Download SW Desktop
+                                    </a>
+                                    <a href="downloads/SWAPI.zip" class="project-link" download>
+                                        <i class="icon">&#x1F4BB;</i> Download SW API
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <h3>Stage Project 1</h3>
+                            <p>Ik heb voor mijn stage een Systeem moeten bouwen waar je fietsen kunt repareren en verkopen. Ik heb hiervoor de volgende talen en frameworks gebruikt:</p>
+                            <h4>C#(Xamarin)</h4>
+                            <h4>C#(ASP.NET)</h4>
+                            <div class="downloads-container">
+                                <div class="downloads">
+                                    <a href="downloads/het-fietsenstation-app.zip" class="project-link" download>
+                                        <i class="icon">&#x1F4BE;</i> Download Desktop
+                                    </a>
+                                    <a href="downloads/het-fietsen-station-api.zip" class="project-link" download>
+                                        <i class="icon">&#x1F4BE;</i> Download API
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <h3>Stage Project 2</h3>
+                            <p>Als 2de Project heb ik voor mijn stage een Systeem moeten bouwen waar je mee kunt in en uit klokken en mijn uren zien. Ik heb hiervoor de volgende talen en frameworks gebruikt:</p>
+                            <h4>PHP(Laravel)</h4>
+                            <h4>Python(Raspberry PI)</h4>
+                            <div class="downloads-container">
+                                <div class="downloads">
+                                    <a href="downloads/New-Tijdstation-web.zip" class="project-link" download>
+                                        <i class="icon">&#x1F4BE;</i> Download Website
+                                    </a>
+                                    <a href="downloads/TijdstationPI.zip" class="project-link" download>
+                                        <i class="icon">&#x1F4BE;</i> Download Raspberry PI Inklok Systeem
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card">
+                            <h3>PiNetHub</h3>
+                            <p>Ik ben net begonnen met dit project, maar wat het doet is zorgen dat je een netwerk server hebt. Hiermee kun je meerdere API's live zetten, met elkaar chatten, video bellen via netwerk, bestand delen, en veel meer. Ik heb hiervoor de volgende talen en frameworks gebruikt:</p>
+                            <h4>Python(Django)</h4>
+                            <h4>C++</h4>
+                            <h4>Python(Raspberry PI)</h4>
+                            <div class="downloads-container">
+                                <div class="downloads">
+                                    <a href="downloads/PiNetHub.zip" class="project-link" download>
+                                        <i class="icon">&#x1F4BE;</i> Download Project
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>            
+
+        <!-- Education Section -->
+        <section id="education" class="section">
+            <div class="container">
+                <h2>Opleiding</h2>
+                <ul class="education-list">
+                    <li><strong>Software Development</strong> - Summa College, Eindhoven (aug 2021 - jul 2025)</li>
+                    <li><strong>VMBO-K</strong> - Fioretti College, Veghel (aug 2016 - jul 2021)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="section">
+            <div class="container">
+                <h2>Werkervaring</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Zaterdaghulp</h3>
+                            <p>Verhoeven.eu, Uden (2022 - 2023)</p>
+                            <ul>
+                                <li>Assisteerde bij IT-gerelateerde taken</li>
+                                <li>Ontwikkelde basisvaardigheden in Het Repareren van Vrachtwagens</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Orderpicker</h3>
+                            <p>Jumbo Distributiecentrum, Veghel (2021 - 2022)</p>
+                            <ul>
+                                <li>Verbeterde efficiëntie in orderverzameling</li>
+                                <li>Werkte in een dynamische teamomgeving</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Bezorger</h3>
+                            <p>Cafetaria van Oranje, Veghel (2020 - 2021)</p>
+                            <ul>
+                                <li>Ontwikkelde sterke tijdmanagementvaardigheden</li>
+                                <li>Verbeterde klantenservice</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact</h2>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Naam" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Bericht" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-btn">Verstuur</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Raúl van der Zande. Alle rechten voorbehouden.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/ra%C3%BAl-van-der-zande-0045071a5" target="_blank"><i
+                        class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
