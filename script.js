@@ -54,21 +54,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     document.addEventListener('DOMContentLoaded', function() {
+        // Try to get the existing visit count from localStorage
         let visitCount = localStorage.getItem('visitCount');
     
-        if (visitCount === null || visitCount === 0) {
-            // Eerste bezoek
+        if (visitCount === null) {
+            // If no visits found in localStorage, initialize to 1
             visitCount = 1;
         } else {
-            // Huidige bezoekersaantal verhogen
+            // If a value is found, parse it and increment by 1
             visitCount = parseInt(visitCount, 10) + 1;
         }
     
-        // Update de localStorage met het nieuwe aantal bezoeken
+        // Store the updated visit count back to localStorage
         localStorage.setItem('visitCount', visitCount);
     
-        // Optioneel: weergave van het aantal bezoeken in de console
-        console.log('Aantal bezoeken:', visitCount);
+        // Update the counter in the footer if it exists
+        const visitCountElement = document.getElementById('visit-count');
+        if (visitCountElement) {
+            visitCountElement.textContent = visitCount;
+        }
     });
+    
     
 });
