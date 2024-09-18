@@ -64,19 +64,24 @@ document.addEventListener('DOMContentLoaded', () => {
         measurementId: "G-D9Q86DW344"
     };
 
+    // Import Firebase functions
+    const { initializeApp } = firebase;
+    const { getDatabase, ref, get, set } = firebase.database;
+
     // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    const database = firebase.database();
-    const analytics = firebase.analytics();
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
 
     // Function to get the current count from Firebase
     function getVisitorCount() {
-        return database.ref('visitorCount').once('value').then(snapshot => snapshot.val() || 0);
+        const countRef = ref(database, 'visitorCount');
+        return get(countRef).then(snapshot => snapshot.val() || 0);
     }
 
     // Function to set the visitor count in Firebase
     function setVisitorCount(count) {
-        return database.ref('visitorCount').set(count);
+        const countRef = ref(database, 'visitorCount');
+        return set(countRef, count);
     }
 
     // Increment the visitor count
