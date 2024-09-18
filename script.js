@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('DOMContentLoaded', function() {
         let visitCount = localStorage.getItem('visitCount');
     
-        if (visitCount === null) {
+        if (visitCount === null || visitCount === 0) {
             // Eerste bezoek
             visitCount = 1;
         } else {
