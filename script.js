@@ -53,50 +53,6 @@ document.addEventListener('DOMContentLoaded', () => {
         burger.classList.toggle('toggle');
     });
 
-
-    // Add new project form submission handler
-    const addProjectForm = document.getElementById('add-project-form');
-    addProjectForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Collect form data
-        const img = document.getElementById('project-img').value;
-        const title = document.getElementById('project-title').value;
-        const description = document.getElementById('project-description').value;
-        const downloadLink = document.getElementById('project-download').value;
-
-        // Validate form data
-        if (!img || !title || !description || !downloadLink) {
-            alert('Vul alle velden in.');
-            return;
-        }
-
-        // Create a new project object
-        const newProject = {
-            img,
-            title,
-            description,
-            downloadLink
-        };
-
-        // Save new project to LocalStorage
-        const projects = getProjects();
-        projects.push(newProject);
-        localStorage.setItem('projects', JSON.stringify(projects));
-
-        // Clear form fields
-        addProjectForm.reset();
-
-        // Hide the overlay
-        overlay.classList.remove('show');
-
-        // Render updated projects
-        renderProjects();
-    });
-
-    // Initial render of projects
-    renderProjects();
-
     const projectCards = document.querySelectorAll('.project-card');
 const overlay = document.getElementById('project-overlay');
 const closeBtn = document.querySelector('.close-btn');
