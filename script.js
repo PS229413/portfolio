@@ -53,27 +53,4 @@ document.addEventListener('DOMContentLoaded', () => {
         burger.classList.toggle('toggle');
     });
     
-    document.addEventListener('DOMContentLoaded', function() {
-        // Try to get the existing visit count from localStorage
-        let visitCount = localStorage.getItem('visitCount');
-    
-        if (visitCount === null) {
-            // If no visits found in localStorage, initialize to 1
-            visitCount = 1;
-        } else {
-            // If a value is found, parse it and increment by 1
-            visitCount = parseInt(visitCount, 10) + 1;
-        }
-    
-        // Store the updated visit count back to localStorage
-        localStorage.setItem('visitCount', visitCount);
-    
-        // Update the counter in the footer if it exists
-        const visitCountElement = document.getElementById('visit-count');
-        if (visitCountElement) {
-            visitCountElement.textContent = visitCount;
-        }
-    });
-    
-    
 });

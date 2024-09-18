@@ -294,7 +294,38 @@
     <script src="https://unpkg.com/scrollreveal"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+        // Debugging: Log to check if the script is being executed
+        console.log("Script loaded and DOM fully parsed");
     
+        // Retrieve the visit count from localStorage
+        let visitCount = localStorage.getItem('visitCount');
+    
+        // Check if visitCount is null (this means it's the first visit)
+        if (visitCount === null) {
+            console.log("No visits found, initializing to 1");
+            visitCount = 1;
+        } else {
+            // If visitCount is found, parse it and increment
+            visitCount = parseInt(visitCount, 10) + 1;
+            console.log("Existing visits found, incrementing to: " + visitCount);
+        }
+    
+        // Store the updated visit count in localStorage
+        localStorage.setItem('visitCount', visitCount);
+        console.log("New visit count stored in localStorage: " + visitCount);
+    
+        // Update the visit count in the footer element
+        const visitCountElement = document.getElementById('visit-count');
+        if (visitCountElement) {
+            visitCountElement.textContent = visitCount;
+            console.log("Visit count displayed in footer: " + visitCount);
+        } else {
+            console.error("No element with ID 'visit-count' found in the HTML");
+        }
+    });    
+    </script>
 </body>
 
 </html>
