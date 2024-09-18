@@ -295,13 +295,20 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     <script src="script.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-        // Debugging: Log to check if the script is being executed
-        console.log("Script loaded and DOM fully parsed");
+       document.addEventListener('DOMContentLoaded', function() {
+    // Debugging: Log to check if the script is being executed
+    console.log("Script loaded and DOM fully parsed");
+
+    // Check if the user is visiting for the first time
+    let isUniqueUser = localStorage.getItem('isUniqueUser');
     
+    // Only increment the counter if this is a new user
+    if (!isUniqueUser) {
+        console.log("Unique user detected, incrementing counter.");
+
         // Retrieve the visit count from localStorage
         let visitCount = localStorage.getItem('visitCount');
-    
+
         // Check if visitCount is null (this means it's the first visit)
         if (visitCount === null) {
             console.log("No visits found, initializing to 1");
@@ -311,11 +318,14 @@
             visitCount = parseInt(visitCount, 10) + 1;
             console.log("Existing visits found, incrementing to: " + visitCount);
         }
-    
+
         // Store the updated visit count in localStorage
         localStorage.setItem('visitCount', visitCount);
         console.log("New visit count stored in localStorage: " + visitCount);
-    
+
+        // Mark this user as unique, so the counter won't increase for them again
+        localStorage.setItem('isUniqueUser', true);
+
         // Update the visit count in the footer element
         const visitCountElement = document.getElementById('visit-count');
         if (visitCountElement) {
@@ -324,7 +334,10 @@
         } else {
             console.error("No element with ID 'visit-count' found in the HTML");
         }
-    });    
+    } else {
+        console.log("User has already been counted. No increment.");
+    }
+});
     </script>
 </body>
 
