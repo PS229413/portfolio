@@ -31,24 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Show/hide back-to-top button
-    const backToTopButton = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
-
-    // Back-to-top button functionality
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    });
-
     // Skill Bar Animation
     const skillBars = document.querySelectorAll('.skill-progress');
     window.addEventListener('scroll', () => {
