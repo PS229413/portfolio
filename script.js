@@ -31,24 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Show/hide back-to-top button
-    const backToTopButton = document.querySelector('.back-to-top');
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
-        } else {
-            backToTopButton.classList.remove('show');
-        }
-    });
-
-    // Back-to-top button functionality
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    });
-
     // Skill Bar Animation
     const skillBars = document.querySelectorAll('.skill-progress');
     window.addEventListener('scroll', () => {
@@ -69,109 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
         navLinks.classList.toggle('nav-active');
         // Burger animation
         burger.classList.toggle('toggle');
-    });
-
-    // Show the overlay form
-    const showModalBtn = document.getElementById('show-add-project');
-    const overlay = document.getElementById('add-project-overlay');
-    const closeBtn = document.querySelector('.overlay .close');
-
-    showModalBtn.addEventListener('click', () => {
-        overlay.classList.add('show'); // Add 'show' class to display the overlay
-    });
-
-    closeBtn.addEventListener('click', () => {
-        overlay.classList.remove('show'); // Remove 'show' class to hide the overlay
-    });
-
-    // Retrieve projects from LocalStorage
-    function getProjects() {
-        const projects = JSON.parse(localStorage.getItem('projects')) || [];
-        return projects;
-    }
-
-    // Render projects to the DOM
-    function renderProjects() {
-        const projectsContainer = document.getElementById('projects-container');
-        projectsContainer.innerHTML = ''; // Clear existing content
-        const projects = getProjects();
-        projects.forEach(project => {
-            const projectCard = document.createElement('div');
-            projectCard.classList.add('project-card');
-            projectCard.innerHTML = `
-                <img src="${project.img}" alt="${project.title}">
-                <h3>${project.title}</h3>
-                <p>${project.description}</p>
-                <a href="${project.downloadLink}" class="project-link" download>Download project</a>
-            `;
-            projectsContainer.appendChild(projectCard);
-        });
-    }
-
-    // Add new project form submission handler
-    const addProjectForm = document.getElementById('add-project-form');
-    addProjectForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        // Collect form data
-        const img = document.getElementById('project-img').value;
-        const title = document.getElementById('project-title').value;
-        const description = document.getElementById('project-description').value;
-        const downloadLink = document.getElementById('project-download').value;
-
-        // Validate form data
-        if (!img || !title || !description || !downloadLink) {
-            alert('Vul alle velden in.');
-            return;
-        }
-
-        // Create a new project object
-        const newProject = {
-            img,
-            title,
-            description,
-            downloadLink
-        };
-
-        // Save new project to LocalStorage
-        const projects = getProjects();
-        projects.push(newProject);
-        localStorage.setItem('projects', JSON.stringify(projects));
-
-        // Clear form fields
-        addProjectForm.reset();
-
-        // Hide the overlay
-        overlay.classList.remove('show');
-
-        // Render updated projects
-        renderProjects();
-    });
-
-    // Initial render of projects
-    renderProjects();
-
-    const projectsContainer = document.getElementById('projects-container');
-    const prevBtn = document.getElementById('prevBtn');
-    const nextBtn = document.getElementById('nextBtn');
-    
-    let currentScroll = 0;
-    const cardWidth = 320; // Width of the project card (adjust with padding/margin)
-    const visibleCards = 3; // Number of visible cards in the viewport
-    const totalCards = document.querySelectorAll('.project-card').length;
-    
-    nextBtn.addEventListener('click', () => {
-        if (currentScroll < totalCards - visibleCards) {
-            currentScroll++;
-            projectsContainer.style.transform = `translateX(-${currentScroll * cardWidth}px)`;
-        }
-    });
-    
-    prevBtn.addEventListener('click', () => {
-        if (currentScroll > 0) {
-            currentScroll--;
-            projectsContainer.style.transform = `translateX(-${currentScroll * cardWidth}px)`;
-        }
     });
     
     document.addEventListener('DOMContentLoaded', function() {
